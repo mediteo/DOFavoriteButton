@@ -10,19 +10,14 @@ It could be just right for favorite buttons!
 
 ## Requirements
 * iOS 7.0+
-* Swift 1.2
+* Swift 3.0
 
 ## Installation
-#### Carthage
-Add the following line to your `Cartfile`:
-```
-github "okmr-d/DOFavoriteButton"
-```
 
 #### CocoaPods
 Add the following line to your `Podfile`:
 ```
-pod 'DOFavoriteButton'
+pod 'DOFavoriteButton', :git => 'https://github.com/mediteo/DOFavoriteButton.git', :branch => 'swift3.0'
 ```
 
 #### Manual
@@ -35,7 +30,7 @@ Just drag DOFavoriteButton.swift to your project.
 #### 2. Create a button
 ##### ・By coding
 ```swift
-let button = DOFavoriteButton(frame: CGRectMake(0, 0, 44, 44), image: UIImage(named: "star.png"))
+let starButton = DOFavoriteButton(frame: CGRect(x: x, y: y, width: 44, height: 44), image: UIImage(named: "star"))
 self.view.addSubview(button)
 ```
 
@@ -48,11 +43,11 @@ self.view.addSubview(button)
 
 #### 3. Add tapped function
 ```swift
-button.addTarget(self, action: Selector("tapped:"), forControlEvents: .TouchUpInside)
+button.addTarget(self, action: #selector(ViewController.tapped(_:)), for: UIControlEvents.touchUpInside)
 ```
 ```swift
 func tapped(sender: DOFavoriteButton) {
-    if sender.selected {
+    if sender.isSelected {
         // deselect
         sender.deselect()
     } else {
