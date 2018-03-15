@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func tappedButton(_ sender: DOFavoriteButton) {
+    @objc func tappedButton(_ sender: DOFavoriteButton) {
         if sender.isSelected {
             sender.deselect()
         } else {
